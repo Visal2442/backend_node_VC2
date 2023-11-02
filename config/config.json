@@ -1,0 +1,33 @@
+{
+  "host": "localhost",
+  "port": 9000,
+  "cors": {
+    "origin": "*"
+  },
+  "database": {
+    "host": "localhost",
+    "port": 3306,
+    "username": "visal",
+    "password": "visal2442",
+    "core": "rental_house",
+    "dialect": "mariadb",
+    "timezone": "Europe/Paris",
+    "option": {
+      "logging": false,
+      "dateStrings": true,
+      "typeCast": true,
+      "decimalNumbers": true,
+      "pool": {
+        "min": 0,
+        "max": 5,
+        "acquire": 30000,
+        "idle": 10000
+      }
+    },
+    "model":{
+      "freezeTableName": true,
+      "createdAt": "created_at",
+      "updatedAt": "updated_at"
+    }
+  }
+}
