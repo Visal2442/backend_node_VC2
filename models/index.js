@@ -4,6 +4,7 @@ import User from "./users.js";
 import Property from "./properties.js";
 import Booking from "./bookings.js";
 import Wishlist from './wishlists.js'
+import Rating from "./rating.js";
 
 import { defineModelAssociation } from "./associations.js";
 
@@ -13,7 +14,8 @@ const models = {
   Property,
   Province,
   Booking,
-  Wishlist
+  Wishlist,
+  Rating
 };
 
 defineModelAssociation(models);
