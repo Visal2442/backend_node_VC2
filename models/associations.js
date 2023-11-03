@@ -1,5 +1,5 @@
 export function defineModelAssociation(appModels) {
-  const { User, District, Property, Province, Booking, Wishlist } = appModels;
+  const { User, District, Property, Province, Booking, Wishlist, Rating } = appModels;
   User.hasMany(Property, {
     foreignKey: "user_id",
     onDelete: "CASCADE",
@@ -91,5 +91,24 @@ export function defineModelAssociation(appModels) {
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
   })
-
+  Property.hasMany(Rating,{
+    foreignKey: "property_id",
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
+  User.hasMany(Rating,{
+    foreignKey: "user_id",
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
+  Rating.belongsTo(User,{
+    foreignKey: "user_id",
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
+  Rating.belongsTo(Property,{
+    foreignKey: "property_id",
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
 }
