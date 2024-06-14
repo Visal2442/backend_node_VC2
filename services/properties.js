@@ -72,7 +72,7 @@ async function update(req, res) {
     res.send();
     return;
   }
-  await property.update(req.body)
+  await property.update(req.body);
   res.send("Property is updated.");
 }
 
