@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize"
-import config from "../config/index.js"
-import database from "../boot/db.js"
+import config from "../../config/index.js"
+import database from "../../boot/db.js"
 
-const provincetSchema = {
+export const provinceSchema = {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -15,7 +15,7 @@ const provincetSchema = {
     allowNull: false,
   }
 };
-const Province = database.core.define("provinces", provincetSchema, {
+const Province = database.core.define("provinces", provinceSchema, {
   ...config.database.model,
   timestamp: false,
 });

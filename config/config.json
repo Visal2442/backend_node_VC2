@@ -9,7 +9,7 @@
     "port": 3306,
     "username": "root",
     "password": "visal2442",
-    "core": "rental_house",
+    "core": "asura",
     "dialect": "mariadb",
     "timezone": "Europe/Paris",
     "option": {
@@ -28,6 +28,19 @@
       "freezeTableName": true,
       "createdAt": "created_at",
       "updatedAt": "updated_at"
+    }
+  },
+  "auth": {
+    "token": {
+      "key": "UhojWlobnPDD2krl",
+      "lifeTime": "30min"
+    },
+    "refreshToken": {
+      "saltRounds": 10,
+      "expiration": "1 DAY"
+    },
+    "user": {
+      "saltRounds": 10
     }
   }
 }

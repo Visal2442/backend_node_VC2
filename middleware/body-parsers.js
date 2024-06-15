@@ -1,6 +1,6 @@
-import express from 'express'
+import express from "express";
 
 export default [
-    express.json({limit: '2mb'}),
-    express.urlencoded({limit:'2mb'})
-]
+  express.json({ limit: "2mb" }),
+  express.urlencoded({ limit: "2mb", extended: false }),
+];

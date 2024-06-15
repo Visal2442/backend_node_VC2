@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import config from "../../config/index.js";
 import database from "../../boot/db.js";
 
-export const wishlistSchema = {
+export const productSchema = {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -10,25 +10,25 @@ export const wishlistSchema = {
     primaryKey: true,
     unique: true,
   },
-  user_id: {
-    type: DataTypes.INTEGER(11),
+  name: {
+    type: DataTypes.STRING(255),
     allowNull: false,
-    references: {
-      model: "users",
-      key: "id",
-    },
   },
-  property_id: {
-    type: DataTypes.INTEGER(11),
+  price: {
+    type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
-    references: {
-      model: "properties",
-      key: "id",
-    },
+  },
+  size: {
+    type: DataTypes.CHAR(4),
+    allowNull: false,
+  },
+  description: {
+    type: DataTypes.STRING(500),
+    allowNull: false,
   },
 };
-const Wishlist = database.core.define("wishlists", wishlistSchema, {
+const Product = database.core.define("product", productSchema, {
   ...config.database.model,
   timestamp: false,
 });
-export default Wishlist;
+export default Product;

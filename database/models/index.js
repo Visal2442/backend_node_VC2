@@ -5,6 +5,8 @@ import Property from "./properties.js";
 import Booking from "./bookings.js";
 import Wishlist from './wishlists.js'
 import Rating from "./rating.js";
+import Product from "./product.js"
+import ProductImage from "./product-image.js"
 
 import { defineModelAssociation } from "./associations.js";
 
@@ -15,7 +17,9 @@ const models = {
   Province,
   Booking,
   Wishlist,
-  Rating
+  Rating,
+  Product,
+  ProductImage
 };
 
 defineModelAssociation(models);

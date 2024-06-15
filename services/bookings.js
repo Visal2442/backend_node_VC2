@@ -1,7 +1,9 @@
-import models from "../models/index.js";
+
+import models from "../database/models/index.js";
+
 const { Property, User, Booking } = models;
 
-async function getAll(req, res) {
+export async function getAll(req, res) {
   try {
     const bookings = await Booking.findAll({
       include: [
@@ -18,7 +20,7 @@ async function getAll(req, res) {
     res.send(err);
   }
 }
-async function create(req, res) {
+export async function create(req, res) {
   const booking = req.body;
   try {
     const newBooking = await Booking.create(booking);
@@ -29,7 +31,3 @@ async function create(req, res) {
     res.send(err);
   }
 }
-export default {
-  getAll,
-  create,
-};

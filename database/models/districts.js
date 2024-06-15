@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import config from "../../config/index.js";
 import database from "../../boot/db.js";
 
-const districtSchema = {
+export const districtSchema = {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,

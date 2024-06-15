@@ -1,5 +1,16 @@
 export function defineModelAssociation(appModels) {
-  const { User, District, Property, Province, Booking, Wishlist, Rating } = appModels;
+  const {
+    User,
+    District,
+    Property,
+    Province,
+    Booking,
+    Wishlist,
+    Rating,
+    Product,
+    ProductImage,
+  } = appModels;
+
   User.hasMany(Property, {
     foreignKey: "user_id",
     onDelete: "CASCADE",
@@ -31,7 +42,7 @@ export function defineModelAssociation(appModels) {
     onUpdate: "CASCADE",
   });
 
-  // Many to Many relationship 
+  // Many to Many relationship
   User.belongsToMany(Property, {
     through: Booking,
     foreignKey: "user_id",
@@ -44,21 +55,21 @@ export function defineModelAssociation(appModels) {
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
   });
-  Property.hasMany(Booking,{
+  Property.hasMany(Booking, {
     foreignKey: "property_id",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
-  })
-  Booking.belongsTo(User,{
+  });
+  Booking.belongsTo(User, {
     foreignKey: "user_id",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
-  })
-  Booking.belongsTo(Property,{
+  });
+  Booking.belongsTo(Property, {
     foreignKey: "property_id",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
-  })
+  });
   User.belongsToMany(Property, {
     through: Wishlist,
     foreignKey: "user_id",
@@ -71,44 +82,58 @@ export function defineModelAssociation(appModels) {
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
   });
-  Property.hasMany(Wishlist,{
+  Property.hasMany(Wishlist, {
     foreignKey: "property_id",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
-  })
-  User.hasMany(Wishlist,{
+  });
+  User.hasMany(Wishlist, {
     foreignKey: "user_id",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
-  })
-  Wishlist.belongsTo(User,{
+  });
+  Wishlist.belongsTo(User, {
     foreignKey: "user_id",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
-  })
-  Wishlist.belongsTo(Property,{
+  });
+  Wishlist.belongsTo(Property, {
     foreignKey: "property_id",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
-  })
-  Property.hasMany(Rating,{
+  });
+  Property.hasMany(Rating, {
     foreignKey: "property_id",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
-  })
-  User.hasMany(Rating,{
+  });
+  User.hasMany(Rating, {
     foreignKey: "user_id",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
-  })
-  Rating.belongsTo(User,{
+  });
+  Rating.belongsTo(User, {
     foreignKey: "user_id",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
-  })
-  Rating.belongsTo(Property,{
+  });
+  Rating.belongsTo(Property, {
     foreignKey: "property_id",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
-  })
+  });
+
+  Product.hasOne(ProductImage, {
+    foreignKey: "product_id",
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+    as: "productImage"
+  });
+  ProductImage.belongsTo(Product, {
+    foreignKey: "product_id",
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+    as: "product"
+
+  });
 }

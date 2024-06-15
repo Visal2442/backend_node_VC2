@@ -1,4 +1,4 @@
-import models from "../models/index.js";
+import models from "../database/models/index.js";
 const { Property, User, District } = models;
 
 async function getAll(req, res) {

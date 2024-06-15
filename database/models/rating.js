@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize"
-import config from "../config/index.js"
-import database from "../boot/db.js"
+import config from "../../config/index.js"
+import database from "../../boot/db.js"
 
-const ratingSchema = {
+export const ratingSchema = {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
